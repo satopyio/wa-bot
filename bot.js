@@ -33,6 +33,11 @@ if (!fs.existsSync('temp')) {
 client.on('qr', qr => {
     console.log('📱 Scan QR Code:');
     qrcode.generate(qr, { small: true });
+    
+    // Also output QR code as text for environments where terminal QR doesn't work well
+    console.log('\n📱 QR Code as text (for copy/paste into QR scanner):');
+    console.log(qr);
+    console.log('\n'); // Add some spacing
 });
 
 client.on('ready', () => {
